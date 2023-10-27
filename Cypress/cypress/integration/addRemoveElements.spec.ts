@@ -1,6 +1,6 @@
 describe('Add/Remove Elements Test', () => {
     it('should add and remove elements', () => {
-      cy.visit('/add_remove_elements/');
+      cy.visit('https://the-internet.herokuapp.com/add_remove_elements/');
   
       // Adding two elements
       cy.get('[onclick="addElement()"]').click().click();
