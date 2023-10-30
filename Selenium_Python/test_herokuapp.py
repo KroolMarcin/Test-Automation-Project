@@ -1,4 +1,5 @@
 import allure
+import datetime
 import unittest
 
 from selenium import webdriver
@@ -6,9 +7,15 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
+def take_screenshot_and_attach(driver):
+    timestamp = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+    filename = f"screenshot_{timestamp}.png"
+    allure.attach(driver.get_screenshot_as_png(), name=filename, attachment_type=allure.attachment_type.PNG)
+
 @allure.title("Test HerokuApp")
 @allure.description("Testing various features of the HerokuApp website")
 class TestHerokuApp(unittest.TestCase):
+
     def setUp(self):
         #Method that runs in the beggining of each test
         self.driver = webdriver.Chrome()
@@ -16,6 +23,7 @@ class TestHerokuApp(unittest.TestCase):
  
     def tearDown(self):
         #Method that runs in the end of each test
+        take_screenshot_and_attach(self.driver)
         self.driver.close()
 
     @allure.story("Testing of adding and removing elements.")
