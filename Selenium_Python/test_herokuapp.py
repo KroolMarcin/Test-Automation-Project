@@ -18,7 +18,7 @@ class TestHerokuApp(unittest.TestCase):
         #Method that runs in the end of each test
         self.driver.close()
 
-    @allure.story("Add/Remove Elements")
+    @allure.story("Testing of adding and removing elements.")
     def test_add_remove_page(self):
 
         # Open main page
@@ -44,6 +44,7 @@ class TestHerokuApp(unittest.TestCase):
             deleteButton = self.driver.find_elements(By.XPATH, "//button[text()='Delete']")
             self.assertEqual(len(deleteButton),1)
 
+    @allure.story("Testing of selecting checkboxes.")
     def test_checkbox(self):
         #Test which gives information about status of checkbox
         with allure.step("Open page with checkboxes exercise."):
@@ -64,10 +65,10 @@ class TestHerokuApp(unittest.TestCase):
             # Unselect second checkbox if it is selected
             if checkbox[1].is_selected():
                 checkbox[1].click()
-
             self.assertTrue(checkbox[0].is_selected())
             self.assertFalse(checkbox[1].is_selected())
     
+    @allure.story("Testing of dropdown list.")
     def test_dropdown(self):
         #Test which asserts chosen element of dropdown
         with allure.step("Open page with dropdown exercise."):
@@ -79,6 +80,7 @@ class TestHerokuApp(unittest.TestCase):
             dropdownElements[2].click()
             self.assertTrue(dropdownElements[2].is_selected())
     
+    @allure.story("Testing of dragging and dropping elements.")
     def test_drag_and_drop(self):
         #Test which drags one element and drops on another element
         with allure.step("Open page with drag and drop exercise."):
