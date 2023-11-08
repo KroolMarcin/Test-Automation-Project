@@ -16,7 +16,6 @@ The goal is to compare these tools in terms of performance, ease of use, and sup
 ## Python with Selenium
 ### Prerequisites:
 - Python 3.x
-- Selenium WebDriver
 - Allure (for reporting) - Installation instructions can be found at the https://allurereport.org/docs/gettingstarted/installation/
 
 ### Setup:
