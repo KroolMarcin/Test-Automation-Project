@@ -58,7 +58,7 @@ class TestHerokuApp(unittest.TestCase):
         with allure.step("Open page with checkboxes exercise."):
             self.driver.get("https://the-internet.herokuapp.com/checkboxes")
         
-        # Checking if first checkbox is already selected
+        # Checking selection of checkbox
         with allure.step("Checking selection of checkbox."):
             checkbox = self.driver.find_elements(By.XPATH, '//input[@type="checkbox"]')
             self.assertFalse(checkbox[0].is_selected())
